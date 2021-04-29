@@ -1,7 +1,7 @@
 	.text
 	.globl main
 main:
-	MOV	r0, #15	     
+	MOV	r0, #16	     
 	MOV	r1, #20
 	BL	firstfunc    
 	MOV	r0, #0x18		
