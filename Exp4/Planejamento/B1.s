@@ -9,7 +9,7 @@
         .globl main
 main: 
         LDR     r0, =0x24           @ atribuindo um valor para r0
-        LDR     r1, =0x123060FF     @ atribuindo um valor para r1
+        LDR     r1, =0x06           @ atribuindo um valor para r1
         STR     r1, [r0]            @ alocando na posicao "r0" da memoria o valor r1
 
         LDRSB   sp, [r0]            @ Load de um Byte (8 Bits) da posicao "r0" da memoria fazendo um sign-extend e alocando em sp
