@@ -35,7 +35,7 @@ loop:
         CMP     r0, #8                  @ compara r0 com 8
         BGE     fim                     @ se r0 >= 8, vai para "fim"
 
-        RSB     r3, r0, #7              @ faz 7 - i e usa o guarda em r3
+        RSB     r3, r0, #7              @ faz 7 - i e guarda em r3
         LDRB    r5, [r2, r3]            @ load em r5 do conteudo de r2 (vetor b) com offset de r3
         STRB    r5, [r1, r0]            @ store do conteudo de r5 na posicao r1 da memoria (vetor a), com offset de i
 
