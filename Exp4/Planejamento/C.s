@@ -43,4 +43,10 @@ loop:
         B       loop                    @ volta para o inicio do loop
         
 fim:
+        LDR     r5, [r2]                @ salva o valor do vetor b em registradores
+        LDR     r4, [r2, #4]            @ para mostrar na tela mais facilmente
+
+        LDR     r7, [r1]                @ salva o valor do vetor a em registradores
+        LDR     r6, [r1, #4]            @ para mostrar na tela mais facilmente
+
         SWI     0x123456                @ encerra programa
