@@ -1,1 +1,0 @@
-Este repositório tem o propósito de facilitar a troca de código entre os parceiros da disciplina de PCS3234
