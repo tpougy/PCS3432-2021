@@ -9,27 +9,8 @@
         .globl main
 main: 
         LDR     r0, =0x00000000         @ variavel i -> comeca em 0
-        LDR     r1, =0x00000000         @ index do vetor a -> vetor comeca em 0x0 e termina em 0x7
-        LDR     r2, =0x00000010         @ index do vetor b -> vetor comeca em 0x10 e termina em 0x17
-
-        LDR     r4, =0xAA               @ conteudo do vetor b
-        LDR     r6, =0xBB               @ conteudo do vetor b
-        LDR     r7, =0xCC               @ conteudo do vetor b
-        LDR     r8, =0xDD               @ conteudo do vetor b
-        LDR     r9, =0xEE               @ conteudo do vetor b
-        LDR     r10, =0xFF              @ conteudo do vetor b
-        LDR     r11, =0x11              @ conteudo do vetor b
-        LDR     r12, =0x22              @ conteudo do vetor b
-
-        STRB    r4, [r2]                @ 0x0 = 0xAA     
-        STRB    r6, [r2, #1]            @ 0x1 = 0xBB
-        STRB    r7, [r2, #2]            @ 0x2 = 0xCC
-        STRB    r8, [r2, #3]            @ 0x3 = 0xDD                 
-        STRB    r9, [r2, #4]            @ 0x4 = 0xEE
-        STRB    r10, [r2, #5]           @ 0x5 = 0xFF
-        STRB    r11, [r2, #6]           @ 0x6 = 0x11
-        STRB    r12, [r2, #7]           @ 0x7 = 0x22
-
+        ADR     r1, vetora              @ index do vetor a -> vetor comeca em 0x0 e termina em 0x7
+        ADR     r2, vetorb              @ index do vetor b -> vetor comeca em 0x10 e termina em 0x17
 
 loop:
         CMP     r0, #8                  @ compara r0 com 8
@@ -50,3 +31,9 @@ fim:
         LDR     r6, [r1, #4]            @ para mostrar na tela mais facilmente
 
         SWI     0x123456                @ encerra programa
+
+vetora:
+        .byte   0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 
+
+vetorb:
+        .byte   0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x11, 0x22 
