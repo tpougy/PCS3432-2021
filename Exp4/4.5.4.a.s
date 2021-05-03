@@ -17,12 +17,12 @@ main:
 
 forheader:
     CMP     r2, r1              @ compara i com s
-    BLT     forloop
+    BLT     forloop             @ se i < s entra no loop
     B       break
 
 forloop:
     STRB    r3, [r0, r2]        @ mem(r0+r2) recebe r3 -> mem(array[0+i]) recebe 0
-    ADD     r2, r2, #1
+    ADD     r2, r2, #1          @ incrementa i de 1 unidade
     B forheader
 
 break:
