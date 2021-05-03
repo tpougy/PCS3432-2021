@@ -9,23 +9,23 @@
  	.globl main
 main:
     ADR     r0, array           @ array a
-    LDR     r1, =0x5            @ define s (constante arbitrária)
+    LDR     r1, =0x4            @ define s (constante arbitrária)
     LDR     r2, =0              @ inicializa i
-    MOV     r4, #0              @ reg auxiliar guarda 0
+    MOV     r3, #0              @ reg auxiliar guarda 0
 
     B       forheader
 
 forheader:
-    CMP     r1, r2              @ compara i com s
-    BLE     forloop
+    CMP     r2, r1              @ compara i com s
+    BLT     forloop
     B       break
 
 forloop:
-    STRB    r4, [r3, r2]        @ mem(r3) recebe o valor armazenado em r4
+    STRB    r3, [r0, r2]        @ mem(r0+r2) recebe r3 -> mem(array[0+i]) recebe 0
     ADD     r2, r2, #1
     B forheader
 
 break:
     SWI     0x123456            @ encerra programa
 
-array: .bytes 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+array: .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF

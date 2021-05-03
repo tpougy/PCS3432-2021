@@ -9,25 +9,26 @@
  	.globl main
 main:
     ADR     r0, array           @ array a
-    LDR     r1, =0x5            @ define s (constante arbitrária)
+    LDR     r1, =0x4            @ define s (constante arbitrária)
     MOV     r10, #0             @ reg auxiliar guarda 0
-    LDR     r2, p
     B       forinit
 
 forinit:
-    STR     r0, [r2]           @ inicializa p
-    LDR     r11, r0, r1        @ inicializa o valor auxiliar para a comparação com p
+    MOV     r2, r0              @ inicializa p
+    ADD     r11, r0, r1         @ inicializa o valor auxiliar para a comparação com p
     B       forheader 
 
 forheader:
-
-    CMP     r2, r11            @ compara p com &array[s]
-    BLE     forloop
+    CMP     r2, r11             @ compara p com &array[s]
+    BLT     forloop
     B       break
 
 forloop:
-    STRB    r4, [r2], #1
+    STRB    r10, [r2]
+    ADD     r2, r2, #1
     B forheader
 
 break:
     SWI     0x123456           @ encerra programa
+
+array: .byte 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
