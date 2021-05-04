@@ -22,7 +22,7 @@ main:
 
 loop:
         ADD     r0, r6, r7          @ Fibonacci: f(n) = f(n-1) + f(n-2)
-        STRB    r0, [r2], #4        @ aloca o valor de f(n) no endereco r2 atualizado
+        STR    r0, [r2], #4        @ aloca o valor de f(n) no endereco r2 atualizado
         MOV     r6, r7              @ f(n+2) = f(n+1)
         MOV     r7, r0              @ f(n+1) = f(n)
 
