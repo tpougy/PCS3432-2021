@@ -10,7 +10,7 @@
 main: 
         LDR     r0, =0x00000000         @ variavel i -> comeca em 0
         ADR     r1, vetora              @ index do vetor a -> vetor comeca em 0x0 e termina em 0x7
-        ADR     r2, vetorb              @ index do vetor b -> vetor comeca em 0x10 e termina em 0x17
+        ADR     r2, vetorb              @ index do vetor b -> vetor comeca em 0x10 e termina em 0x7
 
 loop:
         CMP     r0, #8                  @ compara r0 com 8
