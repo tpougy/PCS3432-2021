@@ -6,7 +6,7 @@
 @ x/x 0x??????? -> printar o conteudo da posicao ??????? da memoria em hex
 
     .text
- 	.globl main
+    .globl main
 main:
     ADR     r0, array           @ array a
     LDR     r1, =0x4            @ define s (constante arbitrária)
