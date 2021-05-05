@@ -18,14 +18,16 @@ main:
         LDR     r4, [r1]            @ r4 = valor da posicao r1 (y)
         ADD     r3, r3, r4          @ r3 = r3 + r1 -> r3 = r3 + y
         STR     r3, [r0]            @ conteudo de r3 eh stored na posicao r0 da memoria (x)
+        STR     r3, [r2, #40]       @ conteudo de r3 eh stored em array[10]
 
 
     @ post-index
-        LDR     r9, [r2], #20       @ r9 = array[0] (r2 eh alterado para array[5]) r3 se torna o ponteiro para inicio do array
+        LDR     r9, [r2], #20       @ r9 = array[0] (r2 eh alterado para array[5]) r9 se torna o ponteiro para inicio do array
         LDR     r6, [r2]            @ r6 recebe valor da posicao r2 da memoria (array[5])
         LDR     r7, [r1]            @ r7 recebe valor da posicai r1 da memoria (y)
         ADD     r8, r6, r7          @ r8 = mem(r2) + mem(r1) -> r4 = array[5] + y
         STR     r8, [r0]            @ conteudo de r8 eh stored na posicao r0 da memoria (x)
+        STR     r8, [r2, #20]       @ conteudo de r8 eh stored em array[10]
 
         SWI     0x123456
 
@@ -37,4 +39,3 @@ y:
 
 array:
     .Word   0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-
