@@ -9,9 +9,10 @@
 	.globl main
 
 main:
-    LDR     r8, =0b1011                 @ valor Y
-    LDR     r9, =0x4                    @ tamanho de Y
-    LDR     r1, =0b00101101100010110110001011011000 @ valor X
+    LDR     r8, =0b101                  @ valor Y
+    LDR     r9, =0x3                    @ tamanho de Y
+    LDR     r1, =0x5555AAAA             @ valor X
+    MOV     r10, r1                     @ copia r1 em r10     
     LDR     r2, =0x0                    @ saida
     LDR     r3, =0x0                    @ variavel i
     LDR     r4, =0x0                    @ reg que guarda a seq de r9 bits de X
@@ -28,7 +29,7 @@ cria_reg:
 
     MOV     r2, r2, LSL #1              @ coloca 0 na saida
 
-    MOVS    r1, r1, LSL #1              @ coloca bit mais a esquerda de X no carry               
+    MOVS    r10, r10, LSL #1            @ coloca bit mais a esquerda de X no carry               
     MOV     r4, r4, LSL #1              @ shift left r4
     ADC     r4, r4, #0                  @ coloca o carry em r4
 
@@ -54,7 +55,7 @@ compara_desloca:                        @ compara e desloca, colocando o novo ca
 
     ADD     r5, r5, #1                  @ j++
 
-    MOVS    r1, r1, LSL #1              @ coloca o ultimo bit de X no carry
+    MOVS    r10, r10, LSL #1            @ coloca o ultimo bit de X no carry
 
     LDR     r7, =0x0                    @ cria/reseta r7 - reg auxiliar
     ADC     r7, r7, #0                  @ adiciona carry em r7
