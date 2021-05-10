@@ -25,7 +25,7 @@ loop:
         LDR     r3, [r0, r1]            @ aloca em r3 o prox valor de dados
 
         CMP     r2, r3                  @ compara r2 com r3 (r2 - r3)
-        MOVLT   r2, r3                  @ caso r2 < r3, r2 = r3     
+        MOVLS   r2, r3                  @ caso r2 <= r3, r2 = r3     
 
 
         B       loop                    @ volta para loop
