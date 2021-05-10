@@ -12,6 +12,7 @@ main:
     LDR     r8, =0b101                  @ valor Y
     LDR     r9, =0x3                    @ tamanho de Y
     LDR     r1, =0x5555AAAA             @ valor X
+    LDR     r11, =0x20                  @ tamanho X
     MOV     r10, r1                     @ copia r1 em r10     
     LDR     r2, =0x0                    @ saida
     LDR     r3, =0x0                    @ variavel i
@@ -20,6 +21,9 @@ main:
     MOV     r0, r8                      @ copia Y em r0
 
     RSB     r6, r9, #32                 @ r6 = 32 - r9
+
+    RSB     r12, r11, #32               @ r12 = r11 - 32 
+    MOV     r10, r10, LSL r12           @ shift left de (32-r9) bits
 
 cria_reg:
     CMP     r3, r9                      @ compara para carregar r9 bits no reg a ser comparado

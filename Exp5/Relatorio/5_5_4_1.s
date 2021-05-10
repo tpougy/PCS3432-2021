@@ -8,7 +8,7 @@
         .text
         .globl main
 main: 
-        LDR     r0, =0b0110110          @10110001101100101001010101101100 - sequencia  
+        LDR     r0, =0b10110001101100101001010101101100 @ sequencia  
         MOV     r8, r0                  @ copia o conteudo de r0 para r8
         LDR     r1, =0x0                @ variavel i
         LDR     r2, =0x0                @ saida
